@@ -8,15 +8,15 @@ gh --version
 
 2. verify your gitbash with github 
 
-git auth login
+gh auth login
 
 3. ✅ Create PUBLIC repository (repository_name= "demo")
 
-git repo create demo -- public
+gh repo create demo -- public
 
 4. 🔒 Create PRIVATE repository (repository_name= "demo")
 
-git repo create demo --private
+gh repo create demo --private
 
 // create demo repository locally
 
