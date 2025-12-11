@@ -1,0 +1,83 @@
+open git bash
+
+// create github repository...
+
+1. show github version
+
+gh --version 
+
+2. verify your gitbash with github 
+
+git auth login
+
+3. ✅ Create PUBLIC repository (repository_name= "demo")
+
+git repo create demo -- public
+
+4. 🔒 Create PRIVATE repository (repository_name= "demo")
+
+git repo create demo --private
+
+// create demo repository locally
+
+1. mkdir demo
+2. cd demo
+3. git init
+
+// make changes in demo empty dir
+
+1. echo "Add README" > README.md
+2. git status
+3. git add README.md 
+
+4. git status
+5. git commit -m "Initial commit"
+6. git log --oneline
+
+// basic workflow (edit, stage , commit)
+
+//edit file
+1. echo "First Line" >> notes.txt
+2. git status
+3. git commit -m "Add notes File"
+
+// change it
+
+1. echo "Seocond Line" >> notes.txt
+2. git status
+3. git diff notes.txt
+4. git add notes.txt
+5. git commit -m "Append second line to notes"
+
+
+<!-- 3) Viewing history & contents -->
+
+1. git log                 # full log
+2. git log --oneline --stat
+3. git show HEAD           # shows last commit details & diff
+4. git show HEAD:README.md # show file content at HEAD
+5. git blame notes.txt     # who changed which line
+
+
+<!-- 4) Branching & switching -->
+
+1. git branch                   # list branches
+2. git branch feature-x         # create branch
+3. git checkout feature-x       # switch
+# (or modern)
+4. git switch -c feature-y      # create & switch
+5. echo "Work on feature" > feat.txt
+6. git add feat.txt
+7. git commit -m "Start feature-x"
+
+# go back to main
+8. git checkout main
+# merge
+9. git merge feature-x
+
+10. git log --graph --all --decorate
+
+
+<!-- 5) Resolve merge conflicts (practice) -->
+
+
