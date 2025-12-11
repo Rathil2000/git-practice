@@ -23,6 +23,7 @@ gh repo create demo --private
 1. mkdir demo
 2. cd demo
 3. git init
+4. git remote add origin https://github.com/Rathil2000/repo_name.git
 
 // make changes in demo empty dir
 
