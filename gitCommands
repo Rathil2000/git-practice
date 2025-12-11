@@ -81,6 +81,7 @@ git repo create demo --private
 <!-- 5) Resolve merge conflicts (practice) -->
 
 # on main
+<<<<<<< HEAD
 echo "Line A" > conflict.txt
 git add conflict.txt
 git commit -m "Add conflict base"
@@ -125,3 +126,55 @@ git reset --soft <commit>       # move HEAD, keep index & worktree
 git reset --mixed <commit>      # move HEAD, reset index, keep worktree
 git reset --hard <commit>       # move HEAD, reset index & worktree (lost)
 
+=======
+1. echo "Line A" > conflict.txt
+2. git add conflict.txt
+3. git commit -m "Add conflict base"
+
+# branch1
+4. git checkout -b br1
+5. echo "Change from br1" > conflict.txt
+6. git commit -am "br1 change"
+
+# back to main, create branch2
+6. git checkout main
+7. git checkout -b br2
+8. echo "Change from br2" > conflict.txt
+9. git commit -am "br2 change"
+
+# merge br1 into main
+10. git checkout main
+11. git merge br1
+
+# now merge br2 (will conflict)
+12. git merge br2
+# Resolve: open conflict.txt, fix, then:
+13. git nano conflict.txt 
+14. git add conflict.txt
+15. git commit -m "Resolve conflict between br1 and br2"
+
+
+<!-- 6) Undoing things (safe tools) -->
+
+# change you haven't staged yet
+1. git checkout -- file.txt        # discard unstaged changes (older git)
+2. git restore file.txt            # recommended to restore unstaged
+
+# changes staged but not committed
+3. git reset HEAD file.txt         # unstage (keeps working dir)
+
+# revert a commit (creates new commit that undoes)
+4. git revert <commit-sha>
+
+# reset --soft vs --mixed vs --hard (dangerous: can lose work)
+5. git reset --soft <commit>       # move HEAD, keep index & worktree
+6. git reset --mixed <commit>      # move HEAD, reset index, keep worktree
+7. git reset --hard <commit>       # move HEAD, reset index & worktree (lost)
+
+<!-- 7) Stashing -->
+1. git stash               # stash changes
+2. git stash list
+3. git checkout other-branch
+4. git stash pop           # apply and remove from stash
+5. git stash apply         # apply but keep stash
+>>>>>>> 8bd6bf1fba5db8b65ad2b01330b248679338a854
