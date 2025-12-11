@@ -178,3 +178,11 @@ git reset --hard <commit>       # move HEAD, reset index & worktree (lost)
 4. git stash pop           # apply and remove from stash
 5. git stash apply         # apply but keep stash
 >>>>>>> 8bd6bf1fba5db8b65ad2b01330b248679338a854
+
+<!-- 8) create remote branch -->
+git branch br1
+git push -u origin br1
+git checkout main
+git pull origin br1
+git commit -m "update br1 changes"
+git push
